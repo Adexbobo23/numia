@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from .models import Team
+from .models import Team, Product
 
 def home(request):
     team = Team.objects.all()
+    product = Product.objects.all()
 
     context = {
-        'staff': team
+        'staff': team,
+        'product': product
     }
     return render(request, 'index.html', context)
 
